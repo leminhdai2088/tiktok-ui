@@ -1,11 +1,9 @@
-import Button from '~/comopnents/Button';
-
 function App() {
-    return (
-        <>
-            <Button />
-        </>
-    );
+  return (
+    <>
+      <h1>Anh yêu em</h1>
+    </>
+  );
 }
 
 export default App;
