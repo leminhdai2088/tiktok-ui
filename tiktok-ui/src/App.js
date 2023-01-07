@@ -1,13 +1,11 @@
 import { Fragment } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
 import { DefaultLayout } from '~/components/Layout';
 function App() {
   return (
     <Router>
       <>
-        <Link to="/">Home</Link>
-        <Link to="/following">Following</Link>
         <Routes>
           {publicRoutes.map((route, index) => {
             const Page = route.component;
