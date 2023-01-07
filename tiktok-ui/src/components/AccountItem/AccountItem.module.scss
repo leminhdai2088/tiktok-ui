@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  padding: 9px 16px;
+  cursor: pointer;
+  align-items: center;
+
+  &:hover {
+    background-color: #e9edf0;
+  }
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+
+  //   cho hình đúng tỉ lệ và không bị tràn khi dùng border radius
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.info {
+  flex: 1;
+}
+
+.id-name {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(22, 24, 35, 0.5);
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.blue-tick {
+  font-size: 16px;
+  margin-left: 8px;
+  color: rgb(32, 213, 236);
+}

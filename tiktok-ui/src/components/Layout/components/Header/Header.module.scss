@@ -1,7 +1,7 @@
 .wrapper {
   --search-border-radius: 92px;
   --search-height: 46px;
-  --seacrh-top-spacer: 9px;
+  --search-top-spacer: 9px;
   --search-bottom-width: 52px;
 
   width: 100%;
@@ -51,13 +51,26 @@
     top: var(--search-top-spacer);
     right: var(--search-bottom-width);
     width: 1.5px;
-    height: calc(var(--search-height) - var(--seach-top-spacer) * 2);
+    height: calc(var(--search-height) - var(--search-top-spacer) * 2);
     background-color: rgba(22, 24, 35, 0.12);
   }
 
   &:focus-within {
     border-color: rgba(22, 24, 35, 0.2);
   }
+}
+
+.search-result {
+  width: 361px;
+}
+
+.search-title {
+  height: 30px;
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: rgba(22, 24, 35, 0.5);
 }
 
 .clear,
