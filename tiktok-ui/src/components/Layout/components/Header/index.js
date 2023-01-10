@@ -1,7 +1,17 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircleXmark,
+  faSpinner,
+  faMagnifyingGlass,
+  faPlus,
+  faEllipsisVertical,
+  faEarthAsia,
+  faCircleQuestion,
+  faKeyboard,
+  faMoon,
+} from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
 import styles from './Header.module.scss';
@@ -9,8 +19,28 @@ import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '../Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import Menu from '../Popper/Menu';
 
 const cx = classNames.bind(styles);
+const MENU_ITEMS = [
+  {
+    icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    title: 'Tiếng Việt',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    title: 'Phản hồi và trợ giúp',
+    to: '/feedback',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    title: 'Phím tắt trên bàn phím',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faMoon} />,
+    title: 'Chế độ tối',
+  },
+];
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
@@ -65,9 +95,13 @@ function Header() {
           <Button primary size="medium">
             Đăng nhập
           </Button>
-          <Button rounded size="small">
-            Đăng nhập
-          </Button>
+
+          {/* more */}
+          <Menu items={MENU_ITEMS}>
+            <button className={cx('more-btn')}>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </button>
+          </Menu>
         </div>
       </div>
     </header>

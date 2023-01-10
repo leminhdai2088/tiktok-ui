@@ -1,0 +1,21 @@
+.more-menu {
+  width: 230px;
+}
+
+.menu-item {
+  padding: 12px 10px 12px 16px;
+  background: none;
+  width: 100%;
+  text-align: start;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-weight: 600;
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.menu-popper {
+  padding-bottom: 8px;
+}
