@@ -26,6 +26,21 @@ const MENU_ITEMS = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: 'Tiếng Việt',
+    children: {
+      title: 'Ngôn ngữ',
+      data: [
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+      ],
+    },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -50,6 +65,10 @@ function Header() {
       setSearchResult([1, 2, 3]);
     }, 0);
   });
+
+  const handleMenuChange = (menuItem) => {
+    console.log(menuItem);
+  };
 
   // thẻ cha trong 1 component thì thêm class wrapper
   return (
@@ -97,7 +116,7 @@ function Header() {
           </Button>
 
           {/* more */}
-          <Menu items={MENU_ITEMS}>
+          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
             <button className={cx('more-btn')}>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>
