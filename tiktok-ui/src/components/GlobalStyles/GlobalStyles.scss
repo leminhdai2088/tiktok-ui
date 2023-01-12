@@ -1,5 +1,5 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,800;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,500&display=swap');
 
 :root {
   --primary: #fe2c55;
@@ -7,7 +7,7 @@
   // DefaultLayout
   --default-layout-header-height: 60px;
   --default-layou-width: 1150px;
-  --text-color: rgb(32, 30, 30);
+  --text-color: #161823;
 }
 html {
   font-size: 62.5%;
@@ -37,4 +37,17 @@ input,
 a[href] {
   color: var(--text-color);
   text-decoration: none;
+}
+
+body .tippy-box {
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  background-color: rgba(84, 84, 84, 0.92);
+  padding: 4px;
+}
+
+body .tippy-arrow {
+  color: rgba(84, 84, 84, 0.92);
 }

@@ -11,8 +11,18 @@ import {
   faCircleQuestion,
   faKeyboard,
   faMoon,
+  faLocationArrow,
+  faCoins,
+  faVideo,
+  faGear,
+  faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react/headless';
+import { faMessage, faUser } from '@fortawesome/free-regular-svg-icons';
+
+// import Tippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+
+import 'tippy.js/dist/tippy.css';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -57,6 +67,37 @@ const MENU_ITEMS = [
   },
 ];
 
+const userMenu = [
+  {
+    icon: <FontAwesomeIcon icon={faUser} />,
+    title: 'Xem hồ sơ',
+    to: '/profile',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCoins} />,
+    title: 'Nhận xu',
+    to: '/coins',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faGear} />,
+    title: 'LIVE Studio',
+    to: '/live',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faVideo} />,
+    title: 'Cài đặt',
+    to: '/setting',
+  },
+
+  ...MENU_ITEMS,
+  {
+    icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+    title: 'Đăng xuất',
+    to: '/logout',
+    separate: true,
+  },
+];
+
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
 
@@ -69,6 +110,8 @@ function Header() {
   const handleMenuChange = (menuItem) => {
     console.log(menuItem);
   };
+
+  const currentUser = true;
 
   // thẻ cha trong 1 component thì thêm class wrapper
   return (
@@ -111,16 +154,41 @@ function Header() {
           <Button iconLeft={<FontAwesomeIcon icon={faPlus} />} btnDefault size="medium">
             Tải lên
           </Button>
-          <Button primary size="medium">
-            Đăng nhập
-          </Button>
+          {currentUser ? (
+            <>
+              <Tippy content="Tin nhắn" placement="bottom">
+                <button className={cx('action-btn')}>
+                  <FontAwesomeIcon icon={faLocationArrow} />
+                </button>
+              </Tippy>
+              <Tippy content="Hộp thư" placement="bottom">
+                <button className={cx('action-btn')}>
+                  <FontAwesomeIcon icon={faMessage} />
+                </button>
+              </Tippy>
 
-          {/* more */}
-          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-            <button className={cx('more-btn')}>
-              <FontAwesomeIcon icon={faEllipsisVertical} />
-            </button>
-          </Menu>
+              <Menu items={userMenu} onChange={handleMenuChange}>
+                <img
+                  className={cx('avatar')}
+                  src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/ca5d8dff51c26bad7f8841b37e5bd65e~c5_100x100.jpeg?x-expires=1673618400&x-signature=c8hHpOZiDIbbinvZ41GcEbw2pCc%3D"
+                  alt="avatar user"
+                />
+              </Menu>
+            </>
+          ) : (
+            <>
+              <Button primary size="medium">
+                Đăng nhập
+              </Button>
+
+              {/* more */}
+              <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+                <button className={cx('more-btn')}>
+                  <FontAwesomeIcon icon={faEllipsisVertical} />
+                </button>
+              </Menu>
+            </>
+          )}
         </div>
       </div>
     </header>
