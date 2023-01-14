@@ -4,20 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleXmark,
   faSpinner,
-  faMagnifyingGlass,
   faPlus,
   faEllipsisVertical,
-  faEarthAsia,
-  faCircleQuestion,
-  faKeyboard,
-  faMoon,
-  faLocationArrow,
-  faCoins,
-  faVideo,
-  faGear,
   faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import { faMessage, faUser } from '@fortawesome/free-regular-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 // import Tippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
@@ -30,11 +21,25 @@ import { Wrapper as PopperWrapper } from '../Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '../Popper/Menu';
+import {
+  CoinIcon,
+  HelpIcon,
+  KeyboardIcon,
+  LanguageIcon,
+  LetterBoxIcon,
+  LiveIcon,
+  MessageIcon,
+  ModeDarkIcon,
+  SearchIcon,
+  SettingIcon,
+} from '~/components/icons';
+
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
   {
-    icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    icon: <LanguageIcon />,
     title: 'Tiếng Việt',
     children: {
       title: 'Ngôn ngữ',
@@ -53,16 +58,16 @@ const MENU_ITEMS = [
     },
   },
   {
-    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    icon: <HelpIcon />,
     title: 'Phản hồi và trợ giúp',
     to: '/feedback',
   },
   {
-    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    icon: <KeyboardIcon />,
     title: 'Phím tắt trên bàn phím',
   },
   {
-    icon: <FontAwesomeIcon icon={faMoon} />,
+    icon: <ModeDarkIcon />,
     title: 'Chế độ tối',
   },
 ];
@@ -74,17 +79,17 @@ const userMenu = [
     to: '/profile',
   },
   {
-    icon: <FontAwesomeIcon icon={faCoins} />,
+    icon: <CoinIcon />,
     title: 'Nhận xu',
     to: '/coins',
   },
   {
-    icon: <FontAwesomeIcon icon={faGear} />,
+    icon: <LiveIcon />,
     title: 'LIVE Studio',
     to: '/live',
   },
   {
-    icon: <FontAwesomeIcon icon={faVideo} />,
+    icon: <SettingIcon />,
     title: 'Cài đặt',
     to: '/setting',
   },
@@ -145,7 +150,7 @@ function Header() {
             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
             <button className={cx('search-btn')}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <SearchIcon width="2.4rem" height="2.4rem" />
             </button>
           </div>
         </Tippy>
@@ -158,19 +163,19 @@ function Header() {
             <>
               <Tippy content="Tin nhắn" placement="bottom">
                 <button className={cx('action-btn')}>
-                  <FontAwesomeIcon icon={faLocationArrow} />
+                  <MessageIcon />
                 </button>
               </Tippy>
               <Tippy content="Hộp thư" placement="bottom">
                 <button className={cx('action-btn')}>
-                  <FontAwesomeIcon icon={faMessage} />
+                  <LetterBoxIcon width="3.6rem" height="3.6rem" />
                 </button>
               </Tippy>
 
               <Menu items={userMenu} onChange={handleMenuChange}>
-                <img
+                <Image
                   className={cx('avatar')}
-                  src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/ca5d8dff51c26bad7f8841b37e5bd65e~c5_100x100.jpeg?x-expires=1673618400&x-signature=c8hHpOZiDIbbinvZ41GcEbw2pCc%3D"
+                  src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/ca5d8dff51c26bad7f8841b37e5bd65e~c5_720x720.jpeg?x-expires=1673856000&x-signature=IHC5wUptTfaqrjNjmFmd8h35a%2FA%3D"
                   alt="avatar user"
                 />
               </Menu>
