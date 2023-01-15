@@ -41,7 +41,7 @@ export const SearchIcon = ({ className, width = '3.2rem', height = '3.2rem' }) =
     data-e2e=""
     height={height}
     viewBox="0 0 48 48"
-    fill="rgba(22, 24, 35, .34)"
+    fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
