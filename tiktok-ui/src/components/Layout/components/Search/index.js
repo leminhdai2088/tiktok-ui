@@ -10,6 +10,8 @@ import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/icons';
 
 import styles from './Search.module.scss';
+
+import { useDebounce } from '~/hooks';
 const cx = classNames.bind(styles);
 
 function Search() {
@@ -19,16 +21,19 @@ function Search() {
   const [loading, setLoading] = useState(false);
 
   const inputRef = useRef();
+
+  const debounced = useDebounce(searchValue, 600);
+
   useEffect(() => {
     // nếu chuỗi tìm kiếm rỗng thì thoát hàm useEffect
-    if (!searchValue.trim()) {
+    if (!debounced.trim()) {
       setSearchResult([]);
       return;
     }
 
     setLoading(true);
     // encodeURIComponent: mã hóa các ký tự bị trùng trên URL để ko bị sai cấu trúc URL
-    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
       .then((response) => response.json())
       .then((users) => {
         setSearchResult(users.data);
@@ -37,7 +42,7 @@ function Search() {
       .catch(() => {
         setLoading(false);
       });
-  }, [searchValue]);
+  }, [debounced]);
 
   const handleClearTextSearch = () => {
     setSearchValue('');
