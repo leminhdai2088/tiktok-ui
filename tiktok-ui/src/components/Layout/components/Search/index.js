@@ -16,13 +16,28 @@ function Search() {
   const [searchValue, setSearchValue] = useState('');
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const inputRef = useRef();
   useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([0]);
-    }, 0);
-  }, []);
+    // nếu chuỗi tìm kiếm rỗng thì thoát hàm useEffect
+    if (!searchValue.trim()) {
+      setSearchResult([]);
+      return;
+    }
+
+    setLoading(true);
+    // encodeURIComponent: mã hóa các ký tự bị trùng trên URL để ko bị sai cấu trúc URL
+    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+      .then((response) => response.json())
+      .then((users) => {
+        setSearchResult(users.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [searchValue]);
 
   const handleClearTextSearch = () => {
     setSearchValue('');
@@ -31,7 +46,6 @@ function Search() {
 
   const handleHideResult = () => {
     setShowResult(false);
-    console.log(showResult);
   };
 
   return (
@@ -44,10 +58,9 @@ function Search() {
         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
           <PopperWrapper>
             <h4 className={cx('search-title')}>Tài khoản</h4>
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
+            {searchResult.map((user) => (
+              <AccountItem key={user.id} data={user} />
+            ))}
           </PopperWrapper>
         </div>
       )}
@@ -62,12 +75,12 @@ function Search() {
           spellCheck={false}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        {!!searchValue && (
+        {!!searchValue && !loading && (
           <button className={cx('clear')} onClick={handleClearTextSearch}>
             <FontAwesomeIcon icon={faCircleXmark} />
           </button>
         )}
-        {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
+        {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
         <button className={cx('search-btn')}>
           <SearchIcon width="2.4rem" height="2.4rem" />
