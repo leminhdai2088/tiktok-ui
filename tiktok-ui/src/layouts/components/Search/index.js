@@ -5,7 +5,7 @@ import 'tippy.js/dist/tippy.css';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-import * as searchServive from '~/apiServices/searchService';
+import * as searchServive from '~/Services/searchService';
 import { Wrapper as PopperWrapper } from '../Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/icons';

@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faEllipsisVertical, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-import routesConfig from '~/config/routes';
+import config from '~/config';
 
 // import Tippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
@@ -251,7 +251,7 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <Link to={routesConfig.home} className={cx('logo-link')}>
+        <Link to={config.routes.home} className={cx('logo-link')}>
           <img src={images.logo} alt="logo tiktok" />
         </Link>
 
