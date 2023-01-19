@@ -9,7 +9,7 @@ import Header from './Header';
 
 const cx = classNames.bind(styles);
 const defaulFn = () => {};
-function Menu({ children, items = [], onChange = defaulFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaulFn }) {
   // giá trị khởi tạo là 1 mảng chứa object là dữ liệu của trang hiện tại
   const [history, setHistory] = useState([{ data: items }]);
   const currentMenu = history[history.length - 1];
@@ -40,6 +40,7 @@ function Menu({ children, items = [], onChange = defaulFn }) {
       interactive
       delay={[0, 700]}
       placement="bottom-end"
+      hideOnClick={hideOnClick}
       render={(attrs) => (
         <div className={cx('more-menu')} tabIndex="-1" {...attrs}>
           <PopperWrapper className={cx('menu-popper')}>

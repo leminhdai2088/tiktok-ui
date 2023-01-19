@@ -2,7 +2,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: 'ProximaNova', sans-serif;
+  font-family: var(--font-family);
+
   font-size: 1.8rem;
   min-width: 100px;
   padding: 4px 16px;
@@ -35,7 +36,7 @@
 }
 
 .name-btn {
-  font-family: 'ProximaNova', sans-serif;
+  font-family: var(--font-family);
 }
 // button types
 .rounded {

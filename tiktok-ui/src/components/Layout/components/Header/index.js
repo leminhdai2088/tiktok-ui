@@ -2,14 +2,14 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faEllipsisVertical, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import routesConfig from '~/config/routes';
 
 // import Tippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
-
 import 'tippy.js/dist/tippy.css';
-
 import styles from './Header.module.scss';
 import images from '~/assets/images';
+import { Link } from 'react-router-dom';
 
 import Button from '~/components/Button';
 import Menu from '../Popper/Menu';
@@ -106,11 +106,14 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <img src={images.logo} alt="logo tiktok" />
+        <Link to={routesConfig.home} className={cx('logo-link')}>
+          <img src={images.logo} alt="logo tiktok" />
+        </Link>
 
         {/* search */}
         <Search />
 
+        {/* actions */}
         <div className={cx('actions')}>
           <Button iconLeft={<FontAwesomeIcon icon={faPlus} />} btnDefault size="medium">
             Tải lên

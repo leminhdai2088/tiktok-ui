@@ -69,6 +69,13 @@ function Search() {
     setShowResult(false);
   };
 
+  const handleChangeInput = (e) => {
+    const seacrchValueInput = e.target.value;
+    if (!seacrchValueInput.startsWith(' ')) {
+      setSearchValue(e.target.value);
+    }
+  };
+
   return (
     <HeadlessTippy
       // cho phép người dùng thao tác với nội dung render
@@ -94,7 +101,7 @@ function Search() {
           value={searchValue}
           placeholder="Tìm kiếm tài khoản và video"
           spellCheck={false}
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={handleChangeInput}
         />
         {!!searchValue && !loading && (
           <button className={cx('clear')} onClick={handleClearTextSearch}>
@@ -103,7 +110,7 @@ function Search() {
         )}
         {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
-        <button className={cx('search-btn')}>
+        <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
           <SearchIcon width="2.4rem" height="2.4rem" />
         </button>
       </div>
