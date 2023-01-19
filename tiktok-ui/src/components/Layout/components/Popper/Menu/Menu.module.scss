@@ -26,11 +26,16 @@
   padding-bottom: 8px;
 }
 
+.menu-scrollable {
+  overflow-y: overlay;
+}
+
 // header-menu
 .header {
   position: relative;
   height: 50px;
   margin-top: -8px;
+  flex-shrink: 0;
 }
 
 .btn-back {
@@ -50,4 +55,5 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: 600;
+  font-size: 2rem;
 }

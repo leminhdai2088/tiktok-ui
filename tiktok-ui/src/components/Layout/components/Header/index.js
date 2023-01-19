@@ -46,6 +46,151 @@ const MENU_ITEMS = [
           code: 'vi',
           title: 'Tiếng Việt',
         },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          type: 'Ngôn ngữ',
+          code: 'en',
+          title: 'Tiếng Anh',
+        },
       ],
     },
   },

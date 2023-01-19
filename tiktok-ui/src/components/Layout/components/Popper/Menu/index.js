@@ -9,7 +9,7 @@ import Header from './Header';
 
 const cx = classNames.bind(styles);
 const defaulFn = () => {};
-function Menu({ children, items = [], hideOnClick = false, onChange = defaulFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaulFn, ...passProps }) {
   // giá trị khởi tạo là 1 mảng chứa object là dữ liệu của trang hiện tại
   const [history, setHistory] = useState([{ data: items }]);
   const currentMenu = history[history.length - 1];
@@ -54,13 +54,14 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaulFn }
                 }}
               />
             )}
-            {renderItems()}
+            <div className={cx('menu-scrollable')}>{renderItems()}</div>
           </PopperWrapper>
         </div>
       )}
       onHide={() => {
         setHistory((prev) => prev.slice(0, 1));
       }}
+      {...passProps}
     >
       {children}
     </Tippy>
