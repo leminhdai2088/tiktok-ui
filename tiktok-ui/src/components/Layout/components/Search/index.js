@@ -3,8 +3,9 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'tippy.js/dist/tippy.css';
 import HeadlessTippy from '@tippyjs/react/headless';
-
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
+
+import * as searchServive from '~/apiServices/searchService';
 import { Wrapper as PopperWrapper } from '../Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/icons';
@@ -31,17 +32,32 @@ function Search() {
       return;
     }
 
-    setLoading(true);
     // encodeURIComponent: mã hóa các ký tự bị trùng trên URL để ko bị sai cấu trúc URL
-    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-      .then((response) => response.json())
-      .then((users) => {
-        setSearchResult(users.data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+    const fetchAPI = async () => {
+      setLoading(true);
+
+      const result = await searchServive.search(debounced);
+      setSearchResult(result);
+
+      setLoading(false);
+    };
+
+    fetchAPI();
+
+    // request
+    //   .get('users/search', {
+    //     params: {
+    //       q: debounced,
+    //       type: 'less',
+    //     },
+    //   })
+    //   .then((users) => {
+    //     setSearchResult(users.data);
+    //     setLoading(false);
+    //   })
+    //   .catch(() => {
+    //     setLoading(false);
+    //   });
   }, [debounced]);
 
   const handleClearTextSearch = () => {
